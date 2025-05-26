@@ -5,6 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM Projects</title>
+    <style>
+        .subscribe-button{
+            border: none;
+            background-color: black;
+            color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-bottom:  30px;
+        }
+
+        .is-subscribed{
+            background-color: rgb(240,240,240);
+            color: black;
+
+        }
+
+        body {
+            font-family: Arial;
+
+        }
+
+        .cost-input{
+            font-size: 15px;
+            padding: 10px;
+
+        }
+        .calculate-button{
+            background-color: green;
+            color: white;
+            border:  none;
+            font-size: 15px;
+            padding:  12px 15px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -12,13 +49,13 @@
     <p>YouTube Subscribe Button</p>
     <button onclick="
     subscribe();
-   " class="js-subscribe-button">Subscribe</button>
+   " class="js-subscribe-button subscribe-button">Subscribe</button>
 
     <p>Amazon Shipping Calculator</p>
-    <input placeholder="cost of order" class="js-cost-input" onkeydown="handleCostkeydown(event);">
+    <input placeholder="cost of order" class="js-cost-input cost-input" onkeydown="handleCostkeydown(event);">
     <button onclick="
     calculateTotal();
-   ">Calculate</button>
+   " class="calculate-button">Calculate</button>
     <p class="js-total-cost"></p>
     <script>
         String(25)
@@ -45,9 +82,11 @@
 
             if (buttonElement.innerText === 'Subscribe') {
                 buttonElement.innerHTML = 'Subscribed';
+                buttonElement.classList.add('is-subscribed');
             }
             else {
                 buttonElement.innerHTML = 'Subscribe';
+                buttonElement.classList.remove('is-subscribed')
             }
         }
     </script>
